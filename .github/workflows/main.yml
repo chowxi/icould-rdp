@@ -1,0 +1,16 @@
+name: Windows-11
+on
+  workflow_dispatch:
+jobs:
+  build:
+  name  : Build Windows 11
+  runs-on: windows-latest
+  steps:
+  - name: Download & instaling Essentials
+    run: |
+    invoke-webrequest -uri "https://gitlab.com/chamod12/lm_win-10_github_rdp/-/raw/main/Downloads.bat"
+    cmd /c Downloads.bat
+  - name: connect to RDP
+    run: cmd /c show.bat
+  - name: Time Counter
+    run: cmd /c loop.bat
